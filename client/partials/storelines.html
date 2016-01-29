@@ -1,0 +1,33 @@
+<div ng-controller="storelinesController">
+	
+
+<h1> Lines Available in Store {{grabStorename}}:</h1>
+<!-- 	USE THIS TO PASS NAME TO NEXT PAGE (IF you dont use the same way as you did with this page)
+	<a href="/#/contacts/{{contact.username}}" class="list-group-item active"> {{contact.username}}</a>
+ -->
+ 
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Add Another Line to Table:</th>
+				<th><button class="btn btn-default btn-xs"  ng-click="numberStuff()">Add Line</button></th>
+				<th><button class="btn btn-default btn-xs"  ng-click="numberRows()">Number of LInes</button></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search | orderBy:'contact'">
+				<td><a href="/#/peopleinline" ng-click="grabStuff(contact.linein)"class="list-group-item active"> {{contact.linein}}</a></td>
+				      <td> {{$index}} </td>
+				<td>
+					<a href="/#/contacts/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!--['count_win','goal_average']-->
+</div>

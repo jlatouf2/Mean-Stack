@@ -1,0 +1,59 @@
+<div ng-app ng-controller="geo4Controller">   
+	
+<div ng-app ng-controller="geo4Controller">   
+	
+	<h1> Geolocation Page </h1>
+Latitude: 		{{latnumber}}	<br>
+Longitude: 		{{longnumber}}	<br>
+Latitude2 (Address1) {{address1}} <br>
+Longitude2 (Notes1)	{{notes1}}
+<br>
+Distance Number to the Store From this device: {{distanceNumber}}
+</div>
+
+ 				<button class="btn btn-default btn-xs"  ng-click="postedSTUFF44()">Black</button>
+
+	<div ng-controller="geo4Controller">
+		<input ng-model="dataToSend3">
+		<input ng-model="dataToSend4">
+
+		<button ng-click="postedSTUFF3()">
+			Send
+		</button>
+		<div>
+			Server Response: {{ serverResponse3 }}
+
+		</div>
+
+	</div>
+
+
+
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Latitude</th>
+				<th>Longitude</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search | orderBy:'latitude'">
+				<td><a href="/#/storelines" data-target="#myModal" ng-click="grabStuff(contact.store)" class="list-group-item active">{{contact.store}}</td>
+				<td>{{contact.latitude}}</td>
+				<td>{{contact.longitude}}</td>
+				<td>{{contact.distance}}</td>
+				<td>
+					<a href="/#/contacts/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+</div>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>MEAN Auth</title>
+  <!-- styles -->
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	
+<!-- this is a link that you dont need for scaleing -->
+	<link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
+
+</head>
+
+
+  <!-- scripts -->
+
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular-cookies.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.9/ngStorage.min.js"></script>
+  <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzgWbHPdTJPKMJyUwsW_kafb7eycfDEEg&signed_in=true&callback=initMap"
+        async defer></script> -->
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
+  <body>
+  	
+  	<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+			        <a class="navbar-brand"  href="">Lineup App</a>
+			        <!-- <a class="navbar-brand" ng-hide="userdata" href="/#/login">Login</a> -->
+    </div>
+
+    <div class="collapse navbar-collapse" id="nav-toggle">
+        <ul class="nav navbar-nav">
+        	<li ng-hide="userdata"><a href="/#/login">Login</a></li>
+			<li ng-hide="userdata"><a href="/#/register">Register</a></li>
+			
+			<li ng-show="userdata"> <a href="/#/logout">Logout</button></a></li>
+			
+		 <!--	<li><a href="/#/NameList">NameList</button></a></li> -->
+		 <!--	<li><a href="/#/showuser">Showuser</button></a></li> -->
+		 <!--	<li><a href="/#/add">Add</button></a></li> -->
+		 <!--	<li><a href="/#/contact">Contact</button></a></li> -->
+		 <!--	<li><a href="/#/menu">menu</button></a></li> -->
+		    <li><a href="/#/storenames">Storenames</button></a></li>
+		    <li><a href="/#/storelines">Storelines</button></a></li>
+		    <li><a href="/#/peopleinline">PeopleInLine</button></a></li>
+ 		    <li><a href="/#/geo4">Geo4</button></a></li> 
+
+		    <li><a href="/#/trackPosition">trackPosition</button></a></li> 
+        </ul>
+    </div>
+</nav>
+
+
+  <span ng-hide="userdata">
+	<a href="#register">Register</a>
+	<a href="#login">login</a>
+</span>
+
+<span ng-show="userdata">
+	<a href="#profile">Profile</a>
+</span>
+
+    <div class="container">
+    <div ng-view></div>
+  </div>
+
+  <script src="./main.js"></script>
+  <script src="./services.js"></script>
+  <script src="./controllers.js"></script>
+   <script src="./socket.io-1.3.2.js"></script>
+   <script src="./angular-socket.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<div ng-controller="trackPositionController">
+	<!--
+		BUTTON CLICKED TO FIND ADDRESS
+	   <input type="button" class="button" id="go" value="Click Me and I'll Guess Your Address!">
+		<div id="results"></div>
+		
+		<input type="text" ng-model="name" class="form-control input-lg" id="name">
+
+-->
+<H1> Location and Postal Code</H1>
+			<div id="results"></div>
+			
+			<!-- This is the way that   -->
+	   <input type="button" class="button" id="go" value="Click Me to Track Address!">
+
+
+
+<H1> Enter Store Name: </H1>
+		<input type="text" ng-model="store"  id="store" >
+
+	   <input type="button" class="button"  value="Submit" ng-click="changeStatus30();">
+
+	<button class="btn btn-default btn-xs"  ng-click="submitName()">Add Name</button>
+
+	   <input type="button" class="button"  value="PlaceCoordinates" ng-click="submitCoordinates();">
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Store</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Store Name / Create Original Line</h4>
+      </div>
+      <div class="modal-body">
+        <p>Enter Store Name.</p>
+        		<input type="text" ng-model="storetoAdd" id="storetoAdd" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="submitName()">Add Name</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--
+	Trigger the modal with a button
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+Modal
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+MOdal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+******To add this to any button just add : data-toggle="modal" data-target="#myModal" *********
+-->
+
+<h1> Store Available in Area</h1>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Latitude</th>
+				<th>Longitude</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search | orderBy:'latitude'">
+				<td><a href="/#/storelines" data-target="#myModal" ng-click="grabStuff(contact.store)" class="list-group-item active">{{contact.store}}</td>
+				<td>{{contact.latitude}}</td>
+				<td>{{contact.longitude}}</td>
+				<td>
+					<a href="/#/contacts/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Position</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search | orderBy:'position'">
+				<td><a href="/#/storelines" data-target="#myModal" ng-click="grabStuff(contact.store)" class="list-group-item active">{{contact.store}}</td>
+				<td>{{contact.position}}</td>
+				<td>
+					<a href="/#/contacts/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+</div>

@@ -1,0 +1,89 @@
+<div class="page-header row">
+	<h1><gravatar email="{{person.name}}" size="50" class="img-circle"></gravatar> {{person.name}}</h1>
+</div>
+
+<h1>{{person.position}}</h1>
+<h1>{{person.skills}}</h1>
+<p ng-init="firstName='John';lastName='Doe'">The full name is: {{ firstName + " " + lastName }}</p>
+
+<div class="form-horizontal">
+
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Name {{person.name}}</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="person.name"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Phone Number</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="person.phone" field-type="tel"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Address</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="people.address" field-type="textarea"></p>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Email Address</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="contact.email" field-type="email"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Website</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="contact.website"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Notes</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="contact.notes" field-type="textarea"></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+
+<div class="container"  ng-controller="contactsController">
+
+    <button ng-click="block();">Black</button>
+
+	<h1>Angular.js Factory</h1>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="person in people | orderBy:'name'">
+          <td>{{person.name}}</td>
+          <td>{{person.position}}</td>
+          <td>{{person.skills}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

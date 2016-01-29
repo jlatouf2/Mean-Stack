@@ -1,0 +1,185 @@
+<div class="col-md-4">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+	<link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
+
+	<h1>NameList!</h1>
+	<div ng-show="error" class="alert alert-danger">
+		{{errorMessage}}
+	</div>
+
+	<p>
+		{{ message }}
+	</p>
+
+	<div ng-app="myApp" ng-controller="NameListController">
+
+		<table>
+			<tr ng-repeat="x in names">
+				<td>{{ x.Name }}</td>
+				<td>{{ x.Country }}</td>
+			</tr>
+		</table>
+
+		<div ng-controller="NameListController">
+			<a ng-click='diffPost()' class="btn btn-default">postingDiff</a>
+		</div>
+
+	</div>
+
+<!--TABLE #1-->
+
+
+	<a ng-click='diffPost()' class="btn btn-default">postingDiff</a>
+
+
+	<div ng-controller="NameListController">
+		<input ng-model="SendUserData">
+		<input ng-model="SendUserData4">
+
+		<button ng-click="postedUsername()">
+			PostedUsername
+		</button>
+
+	</div>
+
+	<div ng-controller="NameListController">
+<input ng-model="SendUserData2">
+<input ng-model="SendUserData3">
+
+		<button ng-click="postedUsername2()">
+			PostedUsername2
+		</button>
+
+	</div>
+
+	<ul>
+		<li ng-repeat="contact in contacts">
+			<div class="container">
+
+				<div class="list-group">
+
+					<a href="{{contact.username}}" class="list-group-item active"> {{contact.username}}</a>
+					<a href="" class="list-group-item"> {{contact.body}}</a>
+				</div>
+			</div>
+		</li>
+
+	</ul>
+
+<!--TABLE #2-->
+
+	<div ng-controller="NameListController">
+
+		<table>
+			<tr ng-repeat="contact in contacts" >
+				<td><a ng-href="#/{{topic.url}}">></a>{{ contact.username }}</td>
+				<td>{{ contact.body }}</td>
+			</tr>
+		</table>
+
+	</div>
+
+<!--TABLE #3-->
+
+
+	<table>
+		<tr ng-repeat="contact in contacts">
+			<td><a style="display: block;" ng-href="#/user/{{x.Username}}"> {{contact.username}} </a></td>
+			<td><a style="display: block;" ng-href="#/user/{{x.Body}}"> {{contact.body}} </a></td>
+		</tr>
+	</table>
+	
+	
+	<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Body</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search">
+				<td>{{contact.username}}</td>
+				<td>{{contact.body}}</td>
+				<td>
+					<a href="/contact/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+	<!--
+		
+	List Example
+	<div class="container">
+	<h2>List Group With Linked Items</h2>
+	<div class="list-group">
+	<a href="" class="list-group-item active">First item</a>
+	<a href="" class="list-group-item">Second item</a>
+	<a href="" class="list-group-item">Third item</a>
+	</div>
+	</div>
+	
+	Table Example
+	
+	<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email Address</th>
+				<th>Phone Number</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts | filter:search">
+				<td>{{contact.name}}</td>
+				<td>{{contact.email}}</td>
+				<td>{{contact.phone}}</td>
+				<td>
+					<a href="/contact/{{$index}}" class="btn btn-default btn-xs">View</a>
+					<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+	-->
+	
+	
+	
+	<div ng-controller="NameListController">
+		<a ng-click='emitBasic7()' class="btn btn-default">emitBasic7</a>
+	</div>
+
+	<div ng-controller="NameListController">
+		<input ng-model="dataToSend">
+		<button ng-click="emitBasic()">
+			Send
+		</button>
+		<button ng-click="emitACK()">
+			Send (ACK)
+		</button>
+		<button ng-click="dataStuff()">
+			Send dataStuff
+		</button>
+		<div>
+			Server Response: {{ serverResponse }}
+		</div>
+		<div>
+			Server Response (ACK): {{ serverResponseACK }}
+		</div>
+		<div>
+			Server Response (dataStuff): {{ serverResponsedataStuff }}
+		</div>
+
+	</div>
+
+</div>
